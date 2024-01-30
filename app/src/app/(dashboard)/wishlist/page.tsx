@@ -19,14 +19,17 @@ export default function Wishlist() {
     useEffect(() => {
         fetchWishlist()
     }, [])
-    // console.log(data);
     
 
     return (
         <>
-            {!data[0] ?
+            {data[0]?.productWishlists.length == 0 ?
                 (
-                    <h1 className="text-2xl mb-3 text-center items-center justify-center">Wishlist is empty</h1>)
+                    <>
+                    <h1 className="text-2xl mb-3 text-center items-center justify-center">Welcome to your wishlists <span className="font-bold text-3xl">{data[0]?.username}</span></h1>
+                    <h1 className="text-2xl mb-3 text-center items-center justify-center">Your Wishlist is empty</h1>
+                    </>
+                    )
                 : (
                     <>
                         <h1 className="text-2xl mb-3 text-center items-center justify-center">Welcome to your wishlists <span className="font-bold text-3xl">{data[0]?.username}</span></h1>

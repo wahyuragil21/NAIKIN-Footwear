@@ -2,8 +2,9 @@
 
 import { Product } from "@/app/types";
 import Link from "next/link";
-import { Favourite } from "./componentAddWishlist";
 import { usePathname } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CardProduct({ product, fetchWishlist }: { product: Product, fetchWishlist: () => void }) {
   const pathname = usePathname()
@@ -20,10 +21,22 @@ export default function CardProduct({ product, fetchWishlist }: { product: Produ
           productId
         })
       });
+
+      if (response.ok) {
+        toast.success('Successfully added to wishlist!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }
   };
 
   const handleDel = async (productId: string) => {
-    try {
      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/wishlist', {
         method: 'DELETE',
         headers: {
@@ -35,18 +48,22 @@ export default function CardProduct({ product, fetchWishlist }: { product: Produ
 
       });
       if (response.ok) {
-        fetchWishlist()
+        fetchWishlist()        
+        toast.error('Successfully removed from wishlist!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
-
-
-      //teos
-
-    } catch (error) {
-      console.error('Error occurred:', error);
-    } 
   }
 
     return (
+      <>
         <div className="card bg-base-100 w-[370px] h-[500px] m-2 relative overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-lg flex flex-col mt-5 mb-5">
             <Link href={`/products/${product.slug}`}>
                 <img src={product.thumbnail as string} alt="Shoes" className="rounded-md" />
@@ -57,7 +74,6 @@ export default function CardProduct({ product, fetchWishlist }: { product: Produ
                     <p className="text-sm text-gray-400">{product.excerpt}</p>
                 </div>
                 <div className="absolute bottom-0 right-0 mb-2 mr-2">
-                    {/* <Favourite product={product._id.toString()} fetchWishlist={fetchWishlist} /> */}
 
                     {pathname === '/wishlist' ? (
                         <button
@@ -79,5 +95,8 @@ export default function CardProduct({ product, fetchWishlist }: { product: Produ
                 </div>
             </div>
         </div>
+        <ToastContainer />
+      </>
+        
     )
 }

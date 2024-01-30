@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavbarProduct from '@/components/navbarProduct'
 import { cookies } from 'next/headers'
-import { string } from 'zod'
 import ProtectComponent from '@/components/protectComponent'
+
 
 const inter = Inter({ subsets: ['latin'] })
 

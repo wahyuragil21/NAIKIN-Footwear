@@ -1,8 +1,8 @@
 'use client'
 
-// import { cookies } from 'next/headers';
-// import { redirect, usePathname } from 'next/navigation';
 import { usePathname } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export function Favourite({ product, fetchWishlist }: { product: string, fetchWishlist: () => void }) {
@@ -36,6 +36,16 @@ export function Favourite({ product, fetchWishlist }: { product: string, fetchWi
       });
       if (response.ok) {
         fetchWishlist()
+        toast.error('Successfully removed from wishlist!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
 
 
@@ -65,6 +75,7 @@ export function Favourite({ product, fetchWishlist }: { product: string, fetchWi
           Favourite
         </button>
       )}
+        <ToastContainer />
     </>
   );
 }
