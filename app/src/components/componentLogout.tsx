@@ -1,9 +1,6 @@
 'use client'
- 
-import { Logout } from '@/action'
-import { useFormStatus } from 'react-dom'
- 
-export function LogoutButton({label}:{label? : string}) {
+import { Logout } from '@/action' 
+export function LogoutButton() {
  
   return (
     <button onClick={() => {

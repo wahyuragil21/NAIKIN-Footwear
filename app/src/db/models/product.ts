@@ -1,7 +1,6 @@
 import { ObjectId } from "mongodb"
 import { getCollection } from "../config/mongoDb"
 
-
 type Product = {
     _id: ObjectId
     name: string
@@ -27,7 +26,7 @@ class productsModel {
         if (search) {
         return await this.collection().find({ slug: { $regex: querySearch } }).toArray() as Product[] | null  
         }
-        return (await this.collection().find().toArray()) as Product[] | null
+        return await this.collection().find().toArray() as Product[] | null
     }
 
     static async findBySlug(slug: string){

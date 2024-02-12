@@ -1,5 +1,4 @@
 'use client'
-
 import { useFormStatus } from 'react-dom'
 
 export function ButtonComp({ label }: { label?: string }) {
@@ -11,7 +10,6 @@ export function ButtonComp({ label }: { label?: string }) {
         <button type="submit" aria-disabled={pending} className="mt-5 tracking-wide font-semibold bg-black text-white-500 w-full py-4 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
         <span className="ml-1 text-white">Loading...</span>
       </button>
-
       ) : (
       <button type="submit" aria-disabled={pending} className="mt-5 tracking-wide font-semibold bg-black text-white-500 w-full py-4 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
         <svg

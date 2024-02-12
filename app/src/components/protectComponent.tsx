@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import NavbarProduct from '@/components/navbarProduct'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'NAIKIN',
@@ -16,15 +12,11 @@ export default function ProtectComponent({
 }: {
     children: React.ReactNode
 }) {
-
     const isLogin = cookies().get('Authorization')?.value
     if (!isLogin || isLogin.length <= 0) {
         redirect('/login')
     }
-
     return (
-        <div>
             {children}
-        </div>
     )
 }

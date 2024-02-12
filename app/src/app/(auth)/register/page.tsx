@@ -37,7 +37,7 @@ export default function Register() {
     }
 
     return (
-        <div>
+        <>
             <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
                 <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
@@ -47,7 +47,6 @@ export default function Register() {
                                 <div className="border-b text-center mb-5">
                                     <Image src={brand} alt="Jordan logo" width={200} className="inline-block" />
                                 </div>
-
                                 <div className="mx-auto max-w-xs">
                                     <form action={handleRegister}>
                                         <input
@@ -89,15 +88,11 @@ export default function Register() {
                     <div className="flex-1 text-center hidden lg:flex">
                         <div
                             className="m-12 xl:m-16 w-full "
-                            style={{
-                                backgroundImage:
-                                    'url("https://i.pinimg.com/564x/4d/11/25/4d1125ebde6fc410c44e5f63353060a9.jpg")'
-                            }}
-                        ></div>
+                            style={{backgroundImage:'url("https://i.pinimg.com/564x/4d/11/25/4d1125ebde6fc410c44e5f63353060a9.jpg")'}}>
+                        </div>
                     </div>
                 </div>
             </div>
-
-        </div>
+        </>
     )
 }

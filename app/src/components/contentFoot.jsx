@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="footer p-10 bg-black text-neutral-content rounded-md ">
+        <footer className="footer p-10 bg-black text-neutral-content">
             <nav>
                 <header className="footer-title">Services</header>
                 <a className="link link-hover">Branding</a>

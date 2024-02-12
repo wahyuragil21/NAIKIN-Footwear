@@ -2,15 +2,11 @@
 import { useState } from "react";
 import { Product } from "@/app/types";
 
-
 export default function ComponentDetailCard({ product }: { product: Product }){
-    
     const [currentImage, setCurrentImage] = useState(product.images[0]);
-
     const handleImageClick = (image: string) => {
         setCurrentImage(image);
     };
-
 
     return (
         <div className="md:flex px-4">

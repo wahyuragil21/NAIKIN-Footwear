@@ -94,28 +94,6 @@ class UserModel{
                       }
                     }
                   ]
-
-                // [
-                //     {
-                //       '$match': {
-                //         '_id': new ObjectId(payload.userId)
-                //       }
-                //     }, {
-                //       '$lookup': {
-                //         'from': 'wishlists', 
-                //         'localField': 'userId', 
-                //         'foreignField': '_id', 
-                //         'as': 'dataWishlists'
-                //       }
-                //     }, {
-                //       '$lookup': {
-                //         'from': 'products', 
-                //         'localField': 'dataWishlists.productId', 
-                //         'foreignField': '_id', 
-                //         'as': 'dataProducts'
-                //       }
-                //     }
-                //   ]
             ).toArray() as UserWishlist[]
             
         } catch (error) {

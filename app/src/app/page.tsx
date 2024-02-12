@@ -1,18 +1,27 @@
 import Carrousel from "../components/contentCarrousel";
-import Hero from "../components/hero";
 import Navbar from "../components/navbar";
 import Footer from "../components/contentFoot"
-import BannerSale from "@/components/bannerSale";
+import BannerShoes from "@/components/bannerSale";
 import About from "@/components/about";
-export default function Home() {
+import { Product } from "@/app/types"
+
+
+async function getProduct(): Promise<Product[]> {
+  const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/products/product/?_limit=6', { cache: 'no-store' })
+  const { data } = await response.json()
+  return data
+}
+export default async function Home() {
+  const data = await getProduct()
   return (
-    <div>
+    <>
       <Navbar />
-      <BannerSale />
-      <Hero />
-      <Carrousel />
-      <About/>
+      <div className="w-11/12 m-auto">
+        <BannerShoes />
+        <Carrousel product={data} />
+        {/* <About /> */}
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
