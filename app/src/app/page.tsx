@@ -2,7 +2,6 @@ import Carrousel from "../components/contentCarrousel";
 import Navbar from "../components/navbar";
 import Footer from "../components/contentFoot"
 import BannerShoes from "@/components/bannerSale";
-import About from "@/components/about";
 import { Product } from "@/app/types"
 
 
@@ -13,13 +12,13 @@ async function getProduct(): Promise<Product[]> {
 }
 export default async function Home() {
   const data = await getProduct()
+
   return (
     <>
       <Navbar />
       <div className="w-11/12 m-auto">
         <BannerShoes />
         <Carrousel product={data} />
-        {/* <About /> */}
       </div>
       <Footer />
     </>

@@ -3,6 +3,7 @@ import Link from "next/link"
 
 
 export default async function Carrousel({ product }: { product: Product[] }) {
+    
 
     return (
         <div className="pt-10 pb-10">

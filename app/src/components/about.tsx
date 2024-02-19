@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
     return (
         <section className="relative bg-blueGray-50">
@@ -5,7 +7,7 @@ export default function About() {
                 <div className="flex flex-wrap items-center">
                     <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 -mt-78">
                         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-500">
-                            <img
+                            <Image
                                 alt="..."
                                 src="https://i.pinimg.com/564x/2c/06/7b/2c067b40a759d8d11e9880d89a54c23d.jpg"
                                 className="w-full align-middle rounded-t-lg"

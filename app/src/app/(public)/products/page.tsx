@@ -38,6 +38,8 @@ export default function ProductPage() {
         }
     }
 
+    
+
     useEffect(() => {
         fetchWishlist()
     }, [search])

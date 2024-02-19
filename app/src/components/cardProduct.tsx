@@ -7,7 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BsBookmarkDashFill, BsFillBookmarkPlusFill } from "react-icons/bs";
 import { useState } from "react";
-import { useCookies } from 'next-client-cookies';
+import { useCookies } from 'next-client-cookies'; 
+import Image from "next/image";
 
 export default function CardProduct({ product, fetchWishlist }: { product: Product, fetchWishlist: () => void }) {
   const pathname = usePathname()
@@ -77,7 +78,7 @@ export default function CardProduct({ product, fetchWishlist }: { product: Produ
           />
         )}
         <Link href={`/products/${product.slug}`}>
-          <img src={product.thumbnail as string} alt="Shoes" className="rounded-md" />
+          <Image src={product.thumbnail as string} alt="Shoes" className="rounded-md" />
         </Link>
         <div className="flex-1 relative">
           <div className="mb-2 mt-3 ml-1 text-black">
